@@ -1,0 +1,28 @@
+<!-- # UPDATED FILE -->
+{% extends "base.html" %}
+{% block title %}Payments - Utility AI{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="page-title mb-1">Payment Page</h2>
+        <p class="text-muted mb-0">Bill payment history and completion status.</p>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-modern">
+        <thead><tr><th>Date</th><th>Bill Month</th><th>Amount</th><th>Status</th></tr></thead>
+        <tbody>
+        {% for p in payments %}
+        <tr>
+            <td>{{ p.payment_date }}</td>
+            <td>{{ p.bill.month }}</td>
+            <td>LKR {{ "%.0f"|format(p.amount) }}</td>
+            <td><span class="badge bg-success">{{ p.status }}</span></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4" class="text-center py-4 text-muted">No payments yet. Use "Pay" on a bill from dashboard.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

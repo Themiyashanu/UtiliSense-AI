@@ -1,0 +1,26 @@
+<!-- # UPDATED FILE -->
+{% extends "base.html" %}
+{% block title %}Recommendations - Utility AI{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="page-title mb-1"><i class="bi bi-lightbulb"></i> Recommendations</h2>
+        <p class="text-muted mb-0">Personalized guidance based on your usage and budget behavior.</p>
+    </div>
+</div>
+{% for r in recommendations %}
+<div class="card ui-card recommendation-card recommendation-{{ r.type }} mb-3">
+    <div class="card-body">
+        <h5 class="mb-2">{{ r.title }}</h5>
+        <p class="mb-0 text-muted">{{ r.text }}</p>
+    </div>
+</div>
+{% else %}
+<div class="card ui-card">
+    <div class="card-body text-center py-5">
+        <i class="bi bi-graph-up-arrow text-muted fs-1"></i>
+        <p class="text-muted mt-3 mb-0">Add monthly bills to unlock personalized recommendations.</p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

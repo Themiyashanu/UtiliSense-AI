@@ -1,0 +1,17 @@
+{
+  "random_seed": 42,
+  "best_model": "LinearRegression",
+  "target_col": "total",
+  "feat_cols": [
+    "month_num",
+    "quarter",
+    "sin_month",
+    "cos_month",
+    "trend",
+    "total_lag_1",
+    "total_lag_2",
+    "total_lag_3",
+    "total_rolling_3"
+  ],
+  "use_scaling": true
+}

@@ -1,0 +1,36 @@
+<!-- # UPDATED FILE -->
+{% extends "base.html" %}
+{% block title %}Edit Bill - Utility Tracker{% endblock %}
+{% block content %}
+<h2 class="page-title mb-4"><i class="bi bi-pencil"></i> Edit Bill</h2>
+<form method="post" class="row g-3 needs-validation" style="max-width: 680px;" novalidate>
+    <div class="col-12">
+        <label class="form-label">Month (YYYY-MM)</label>
+        <input type="month" name="month" class="form-control" value="{{ bill.month }}" required>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Electricity (LKR)</label>
+        <input type="number" name="electricity" class="form-control bill-input" step="0.01" value="{{ bill.electricity_lkr or 0 }}" min="0">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Water (LKR)</label>
+        <input type="number" name="water" class="form-control bill-input" step="0.01" value="{{ bill.water_lkr or 0 }}" min="0">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Telecom (LKR)</label>
+        <input type="number" name="telecom" class="form-control bill-input" step="0.01" value="{{ bill.telecom_lkr or 0 }}" min="0">
+    </div>
+    <div class="col-12">
+        <label class="form-label">Total (LKR)</label>
+        <input type="number" name="total" class="form-control" step="0.01" min="0" value="{{ bill.total_lkr }}" id="billTotal">
+    </div>
+    <div class="col-12">
+        <label class="form-label">Notes</label>
+        <input type="text" name="notes" class="form-control" value="{{ bill.notes or '' }}">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ url_for('bills.list_bills') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+{% endblock %}

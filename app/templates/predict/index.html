@@ -1,0 +1,57 @@
+<!-- # UPDATED FILE -->
+{% extends "base.html" %}
+{% block title %}Prediction - Utility AI{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="page-title mb-1">Prediction Page</h2>
+        <p class="text-muted mb-0">Run ML-based next-month utility forecast using your latest bills.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card ui-card mb-4">
+            <div class="card-header">Your Recent Bills</div>
+            <div class="card-body">
+                {% if bills %}
+                <ul class="list-group list-group-flush">
+                    {% for b in bills[:3] %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>{{ b.month }}</span>
+                        <span>LKR {{ "%.0f"|format(b.total_lkr) }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="text-muted">No bills yet. <a href="{{ url_for('bills.add') }}">Add bills</a> to get predictions.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card ui-card mb-4">
+            <div class="card-header">Prediction</div>
+            <div class="card-body">
+                <button id="btnPredict" class="btn btn-primary btn-modern" data-api-url="{{ url_for('predict.predict_api') }}" {% if not bills %}disabled{% endif %}>
+                    <i class="bi bi-cpu"></i> Get Prediction
+                </button>
+                <div id="predictionResult" class="mt-4" style="display:none;">
+                    <h5>Next Month Forecast</h5>
+                    <table class="table">
+                        <tr><th>Total</th><td id="predTotal">-</td></tr>
+                        <tr><th>Electricity</th><td id="predElec">-</td></tr>
+                        <tr><th>Water</th><td id="predWater">-</td></tr>
+                        <tr><th>Telecom</th><td id="predTelecom">-</td></tr>
+                        <tr><th>Confidence</th><td id="predConf">-</td></tr>
+                    </table>
+                </div>
+                <div id="predictionError" class="alert alert-danger mt-3" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/predict.js') }}"></script>
+{% endblock %}

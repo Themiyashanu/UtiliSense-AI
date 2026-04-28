@@ -1,0 +1,35 @@
+<!-- # UPDATED FILE -->
+{% extends "base.html" %}
+{% block title %}Budget Settings - Utility AI{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="page-title mb-1"><i class="bi bi-wallet2"></i> Budget Settings</h2>
+        <p class="text-muted mb-0">Define monthly spend limits and alert threshold.</p>
+    </div>
+</div>
+<div class="card ui-card">
+    <div class="card-body p-4">
+        <form method="post" class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+                <label class="form-label">Monthly Budget (LKR)</label>
+                <input type="number" name="monthly_budget" class="form-control" value="{{ budget.monthly_budget }}" step="1" min="0" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Alert Threshold</label>
+                <input type="number" name="alert_threshold" class="form-control" value="{{ budget.alert_threshold or 1.0 }}" step="0.05" min="0.1" max="2.0" required>
+                <div class="form-text">1.0 = 100% of budget, 0.9 = early warning at 90%.</div>
+            </div>
+            <div class="col-12">
+                <div class="alert alert-info border-0 mb-0">
+                    <i class="bi bi-info-circle-fill"></i>
+                    You will receive notifications when prediction crosses your configured threshold.
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-modern">Save Budget Preferences</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

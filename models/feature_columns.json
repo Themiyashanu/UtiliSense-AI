@@ -1,0 +1,11 @@
+[
+  "month_num",
+  "quarter",
+  "sin_month",
+  "cos_month",
+  "trend",
+  "total_lag_1",
+  "total_lag_2",
+  "total_lag_3",
+  "total_rolling_3"
+]

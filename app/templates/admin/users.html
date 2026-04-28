@@ -1,0 +1,28 @@
+<!-- # UPDATED FILE -->
+{% extends "base.html" %}
+{% block title %}Users - Admin{% endblock %}
+{% block content %}
+<h2 class="page-title mb-4"><i class="bi bi-people"></i> Users</h2>
+<div class="card ui-card">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-modern mb-0">
+                <thead><tr><th>ID</th><th>Username</th><th>Email</th><th>Admin</th><th>Created</th></tr></thead>
+                <tbody>
+                {% for u in users %}
+                <tr>
+                    <td>{{ u.id }}</td>
+                    <td>{{ u.username }}</td>
+                    <td>{{ u.email or '-' }}</td>
+                    <td>{% if u.is_admin %}<span class="badge bg-danger">Admin</span>{% else %}-{% endif %}</td>
+                    <td>{{ u.created_at.strftime('%Y-%m-%d') }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="5" class="text-center py-4 text-muted">No users found.</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
