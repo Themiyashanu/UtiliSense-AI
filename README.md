@@ -85,29 +85,29 @@ The system uses machine learning models to predict future expenses and provides 
 ---
 
 ### 🏠 Dashboard View
-![Dashboard 1](System_Screenshots%20/dashboard1.png)
-![Dashboard 2](System_Screenshots%20/dashboard2.png)
-![Dashboard 3](System_Screenshots%20/dashboard3.png)
+![Dashboard1](System_Screenshots/dashboard1.png)
+![Dashboard2](System_Screenshots/dashboard2.png)
+![Dashboard3](System_Screenshots/dashboard3.png)
 
 ---
 
 ### 📊 Prediction Result
-![Prediction](System_Screenshots%20/Budget.png)
+![Prediction](System_Screenshots/Budget.png)
 
 ---
 
 ### ⚠️ Notification Alert
-![Notification](System_Screenshots%20/Notification.png)
+![Notification](System_Screenshots/Notification.png)
 
 ---
 
 ### 💡 Recommendations
-![Recommendations](System_Screenshots%20/Recomendations.png)
+![Recommendations](System_Screenshots/Recomendations.png)
 
 ---
 
 ### 💳 Payment Page
-![Payment](System_Screenshots%20/payment.png)
+![Payment](System_Screenshots/payment.png)
 
 ---
 
