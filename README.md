@@ -85,11 +85,11 @@ The system uses machine learning models to predict future expenses and provides 
 ---
 
 ### 🏠 Dashboard View
-![Dashboard1](System_Screenshots/dashboard1.png)
+![Dashboard1](System_Screenshots/dashboard_1.png)
 
-![Dashboard2](System_Screenshots/dashboard2.png)
+![Dashboard2](System_Screenshots/dashboard_2.png)
 
-![Dashboard3](System_Screenshots/dashboard3.png)
+![Dashboard3](System_Screenshots/dashboard_3.png)
 
 ---
 
