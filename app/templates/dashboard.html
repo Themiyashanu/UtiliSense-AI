@@ -114,7 +114,7 @@
                         <tr>
                             <td>{{ b.month }}</td>
                             <td>LKR {{ "%.0f"|format(b.total_lkr or 0) }}</td>
-                            <td><a href="{{ url_for('payments.pay_now', bill_id=b.id) }}" class="btn btn-sm btn-outline-success">Pay</a></td>
+                            <td><a href="{{ url_for('payments.pay_now', bill_id=b.id) }}" class="btn btn-sm btn-outline-success">Pay Now</a></td>
                         </tr>
                         {% else %}
                         <tr><td colspan="3">No bills yet. <a href="{{ url_for('bills.add') }}">Add first bill</a>.</td></tr>

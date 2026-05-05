@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Review Payment - Utility AI{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card ui-card">
+            <div class="card-header">Step 2 of 3: Review & Confirm</div>
+            <div class="card-body">
+                <h5 class="mb-3">Payment Summary</h5>
+                <table class="table">
+                    <tr><th>Bill Month</th><td>{{ bill.month }}</td></tr>
+                    <tr><th>Amount</th><td>LKR {{ "{:,.0f}".format(bill.total_lkr) }}</td></tr>
+                    <tr>
+                        <th>Method</th>
+                        <td>
+                            {% if draft.method == "card" %}
+                                Debit/Credit Card
+                            {% elif draft.method == "bank_transfer" %}
+                                Bank Transfer
+                            {% else %}
+                                Digital Wallet
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% if draft.method == "card" %}
+                    <tr><th>Card Holder</th><td>{{ draft.card_holder }}</td></tr>
+                    <tr><th>Card</th><td>{{ draft.card_number_masked }}</td></tr>
+                    <tr><th>Expiry</th><td>{{ draft.expiry }}</td></tr>
+                    {% endif %}
+                    <tr><th>Gateway</th><td>Sandbox Simulation (No real charge)</td></tr>
+                </table>
+
+                <div class="alert alert-info">
+                    Step 3 of 3 will mark this bill as paid and store the payment record.
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('payments.checkout', bill_id=bill.id) }}" class="btn btn-outline-secondary">Back</a>
+                    <form method="post">
+                        <button type="submit" class="btn btn-success">Confirm Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
